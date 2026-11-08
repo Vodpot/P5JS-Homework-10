@@ -1,3 +1,11 @@
+
+// Variables for moving leaf component
+
+  let fallLeafOneX = 475
+  let fallLeafOneY = 150
+  let fallLeafTwoX = 360
+  let fallLeafTwoY = 125
+
 function setup() {
   createCanvas(600, 400);
 
@@ -72,7 +80,10 @@ function draw() {
     ellipse(268,260,10,5)
     ellipse(475,260,10,5)
 
-  // Squirrel
+  
+
+
+  // Rabbit following cursor
   fill(186,132,96)
     circle(mouseX,mouseY,10)
     ellipse(mouseX-5,mouseY+10,10,20)
@@ -90,8 +101,28 @@ function draw() {
     circle(mouseX-15,mouseY+15,10)
     ellipse(mouseX-4,mouseY-10,3,8)
 
-   // Show mouse position
+    
+   // Shows mouse position when active
    fill(0)
-   textSize(16);
+    textSize(16);
    //text("Mouse X: "+round(mouseX)+" Mouse Y:"+round(mouseY), mouseX, mouseY+30);
+   
+  animateShapes();
+  }
+
+  function animateShapes(){
+    // Right side moving leaf
+  fill(242,140,63)
+  ellipse(fallLeafOneX,fallLeafOneY,10,5)
+  fallLeafOneY++;
+  if(fallLeafOneY > 255){
+  fallLeafOneY = 150;
+  }
+    // Left side falling leaf
+  ellipse(fallLeafTwoX, fallLeafTwoY, 10,5)
+  fallLeafTwoY++;
+  if(fallLeafTwoY>240){
+    fallLeafTwoY = 125
+  }
+
 }
